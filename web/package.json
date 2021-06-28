@@ -8,5 +8,8 @@
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
   },
-  "author": "YUUKIToriyama<github@toriyama.dev>"
+  "author": "YUUKIToriyama<github@toriyama.dev>",
+  "dependencies": {
+    "@toriyama/han2zen": "^0.1.1"
+  }
 }

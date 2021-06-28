@@ -1,6 +1,6 @@
 [package]
 name = "han2zen"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["YUUKIToriyama <github@toriyama.dev>"]
 description = "WASM Module which converts Halfwidth Katakana to Fullwidth Katakana"
 repository = "https://github.com/YUUKIToriyama/han2zen"

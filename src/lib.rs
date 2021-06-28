@@ -2,11 +2,6 @@ extern crate wasm_bindgen;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
-extern "C" {
-	pub fn alert(s: &str);
-}
-
-#[wasm_bindgen]
 pub fn han2zen(str: &str) -> String {
 	return str
 		.chars()
