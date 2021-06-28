@@ -1,15 +1,28 @@
-import { han2zen } from "@toriyama/han2zen";
+import * as wasm from "@toriyama/han2zen";
+import * as js from "./lib";
+
+let input = document.getElementById("input");
+let output = document.getElementById("output");
 document.getElementById("convert").addEventListener("click", () => {
-	let input = document.getElementById("input");
+	let result;
+	let performance_wasm = evaluatePerformance(() => {
+		result = wasm.han2zen(input.value);
+	});
+	let performance_js = evaluatePerformance(() => {
+		js.han2zen(input.value);
+	})
+	output.innerText = result;
+	alert("WASM:" + performance_wasm[0].duration + "ms" + "\n" + "JS: " + performance_js[0].duration + "ms");
+});
+
+const evaluatePerformance = (func) => {
 	performance.mark("start");
-	let result = han2zen(input.value);
+	func();
 	performance.mark("end");
-	document.getElementById("output").innerText = result;
 	performance.measure(
-		"measure",
+		"performance",
 		"start",
 		"end"
 	);
-	const performanceResult = performance.getEntriesByName("measure");
-	alert(performanceResult[0].duration + "ms");
-});
+	return performance.getEntriesByName("performance");
+}
